@@ -1,0 +1,22 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: staging-litmusdoc
+  namespace: litmus-doc
+  annotations:
+    flux.weave.works/automated: 'true'    
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app : staging-litmusdoc
+    spec:
+      containers:
+        - name: staging-litmusdoc
+          image: mayadataio/stage-litmus-docs:staging-b47548
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 80
+      imagePullSecrets:
+      - name: mayadatasecret2
