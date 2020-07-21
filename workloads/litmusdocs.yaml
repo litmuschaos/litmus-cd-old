@@ -3,7 +3,7 @@ apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   name: litmusdoc
-  namespace: litmus
+  namespace: litmus-doc
   annotations:
     flux.weave.works/automated: 'true'
 spec:

@@ -2,7 +2,7 @@ apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   name: v0-5-0litmusdoc
-  namespace: litmus
+  namespace: litmus-doc
 spec:
   replicas: 1
   template:
@@ -25,7 +25,7 @@ metadata:
   labels:
     app: v0-5-0litmusdoc
   name:  v0-5-0litmusdoc-service
-  namespace: litmus
+  namespace: litmus-doc
 spec:
   ports:
   - name: v0-5-0litmusdoc
