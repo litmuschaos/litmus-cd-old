@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    flux.weave.works/automated: "true"
+  name: stage-litmus-openebs-docs
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stage-litmus-openebs-docs
+  template:
+    metadata:
+      labels:
+        app : stage-litmus-openebs-docs
+    spec:
+      containers:
+        - name: stage-litmus-openebs-docs
+          image: shubh214/litmus-openebs-docs:1.1.18
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 80
