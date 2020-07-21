@@ -1,0 +1,35 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: v0-5-0litmusdoc
+  namespace: litmus
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app : v0-5-0litmusdoc
+    spec:
+      containers:
+        - name: v0-5-0litmusdoc
+          image: mayadataio/litmus-docs:master-e274e8
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 80
+      imagePullSecrets:
+      - name: mayadatasecret2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: v0-5-0litmusdoc
+  name:  v0-5-0litmusdoc-service
+  namespace: litmus
+spec:
+  ports:
+  - name: v0-5-0litmusdoc
+    port: 80
+    protocol: TCP
+  selector:
+    app: v0-5-0litmusdoc
