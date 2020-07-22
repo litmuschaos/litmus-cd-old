@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -9,11 +10,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app : staging-litmusdoc
+      app: staging-litmusdoc
   template:
     metadata:
       labels:
-        app : staging-litmusdoc
+        app: staging-litmusdoc
     spec:
       containers:
         - name: staging-litmusdoc
