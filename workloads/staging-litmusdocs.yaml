@@ -17,9 +17,9 @@ spec:
     spec:
       containers:
         - name: staging-litmusdoc
-          image: mayadataio/stage-litmus-docs:staging-b47548
+          image: bharamicrosystems/nginx:v2
           imagePullPolicy: Always
           ports:
           - containerPort: 80
-      imagePullSecrets:
-      - name: mayadatasecret2
+      # imagePullSecrets:
+      # - name: mayadatasecret2
