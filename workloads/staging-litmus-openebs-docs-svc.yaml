@@ -4,12 +4,13 @@ metadata:
   labels:
     app: stage-litmus-openebs-docs
   name: stage-litmus-openebs-docs-svc
-  namespace: default
+  namespace: litmus-doc
 spec:
   ports:
   - name: stage-litmus-openebs-docs
     port: 80
     protocol: TCP
     targetPort: 80
+  type: LoadBalancer    
   selector:
     app: stage-litmus-openebs-docs
