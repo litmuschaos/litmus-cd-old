@@ -1,0 +1,30 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: stage-chart-litmuschaos
+  name: stage-chart-litmuschaos
+  namespace: litmus-hub
+  annotations:
+    fluxcd.io/automated: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stage-chart-litmuschaos
+  template:
+    metadata:
+      labels:
+        app: stage-chart-litmuschaos
+    spec:
+      containers:
+      - name: stage-chart-litmuschaos
+        image: mayadata/charthub-litmuschaos-io-stag:8837eb
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          protocol: TCP
+      restartPolicy: Always
+      imagePullSecrets:
+      - name: mayadatasecret2

@@ -1,0 +1,34 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    # cert-manager.io/cluster-issuer: letsencrypt-prod-maya-cluster
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/server-snippets: "gzip on;"
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+  name: chart-litmuschaos-ingress-prod
+  namespace: litmus-hub
+spec:
+  rules:
+  - host: hub.litmuschaos.io
+    http:
+      paths:
+      - backend:
+          serviceName: prod-chart-litmuschaos-service
+          servicePort: 80
+        path: "/"
+      - backend:
+          serviceName: prod-chart-litmuschaos-server-service
+          servicePort: 8080
+        path: "/api/"
+      - backend:
+          serviceName: echoheaders
+          servicePort: 80
+        path: "/echo/"
+  tls:
+  - hosts:
+    - hub.litmuschaos.io
+    secretName: chart-hub-litmuschaos-secrets-prod

@@ -1,0 +1,40 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: stage-chart-litmuschaos-server
+  name: stage-chart-litmuschaos-server
+  namespace: litmus-hub
+  annotations:
+    fluxcd.io/automated: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stage-chart-litmuschaos-server
+  template:
+    metadata:
+      labels:
+        app: stage-chart-litmuschaos-server
+    spec:
+      containers:
+      - name: stage-chart-litmuschaos-server
+        image: mayadata/charthub-litmuschaos-io-stag-server:8837eb
+        imagePullPolicy: Always
+        env:
+        - name: CHAOS_CHART_BRANCH
+          value: "staging"
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/analytics
+      restartPolicy: Always
+      imagePullSecrets:
+      - name: mayadatasecret2
+      volumes:
+      - name: config-volume
+        configMap:
+          name: analytic-auth

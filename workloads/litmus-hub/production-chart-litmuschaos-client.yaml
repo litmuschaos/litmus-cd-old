@@ -1,0 +1,30 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: prod-chart-litmuschaos
+  name: prod-chart-litmuschaos
+  namespace: litmus-hub
+  annotations:
+    fluxcd.io/automated: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prod-chart-litmuschaos
+  template:
+    metadata:
+      labels:
+        app: prod-chart-litmuschaos
+    spec:
+      containers:
+      - name: prod-chart-litmuschaos
+        image: mayadata/charthub-litmuschaos-io:73668d
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          protocol: TCP
+      restartPolicy: Always
+      imagePullSecrets:
+      - name: mayadatasecret2
