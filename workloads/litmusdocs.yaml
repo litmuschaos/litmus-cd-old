@@ -1,13 +1,15 @@
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: litmusdoc
   namespace: litmus-doc
   annotations:
-    flux.weave.works/automated: 'true'
+    fluxcd.io/automated: "true"
 spec:
   replicas: 1
+    matchLabels:
+      app: litmusdoc
   template:
     metadata:
       labels:
