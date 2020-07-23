@@ -17,11 +17,11 @@ spec:
         app: staging-litmusdoc
     spec:
       containers:
-        - name: staging-litmusdoc
-          image: mayadataio/stage-litmus-docs:staging-b47548
-          imagePullPolicy: Always
-          ports:
-          - containerPort: 80
+      - name: staging-litmusdoc
+        image: mayadataio/stage-litmus-docs:staging-76f777
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
       imagePullSecrets:
       - name: mayadatasecret2
 ---
@@ -39,6 +39,6 @@ spec:
     port: 80
     protocol: TCP
     targetPort: 80
-  type: LoadBalancer    
+  type: LoadBalancer
   selector:
     app: staging-litmusdoc
