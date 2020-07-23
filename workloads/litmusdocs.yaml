@@ -8,8 +8,6 @@ metadata:
     fluxcd.io/automated: "true"
 spec:
   replicas: 1
-    matchLabels:
-      app: litmusdoc
   template:
     metadata:
       labels:
