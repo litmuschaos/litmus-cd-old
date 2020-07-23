@@ -4,7 +4,7 @@ metadata:
   annotations:
     flux.weave.works/automated: "true"
   name: stage-litmus-openebs-docs
-  namespace: default
+  namespace: litmus-doc
 spec:
   replicas: 1
   selector:
