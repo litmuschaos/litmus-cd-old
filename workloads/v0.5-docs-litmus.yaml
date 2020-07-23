@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: v0-5-0litmusdoc
   namespace: litmus-doc
+  annotations:
+    fluxcd.io/automated: "true"
 spec:
   replicas: 1
   template:
@@ -31,5 +33,6 @@ spec:
   - name: v0-5-0litmusdoc
     port: 80
     protocol: TCP
+  type: LoadBalancer
   selector:
     app: v0-5-0litmusdoc
