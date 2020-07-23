@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -9,18 +10,18 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app : v0-5-0litmusdoc
+      app: v0-5-0litmusdoc
   template:
     metadata:
       labels:
-        app : v0-5-0litmusdoc
+        app: v0-5-0litmusdoc
     spec:
       containers:
-        - name: v0-5-0litmusdoc
-          image: mayadataio/litmus-docs:master-e274e8
-          imagePullPolicy: Always
-          ports:
-          - containerPort: 80
+      - name: v0-5-0litmusdoc
+        image: mayadataio/litmus-docs:master-761adb
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
       imagePullSecrets:
       - name: mayadatasecret2
 ---
@@ -29,7 +30,7 @@ kind: Service
 metadata:
   labels:
     app: v0-5-0litmusdoc
-  name:  v0-5-0litmusdoc-service
+  name: v0-5-0litmusdoc-service
   namespace: litmus-doc
 spec:
   ports:
