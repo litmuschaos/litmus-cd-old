@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: production-litmuschaos
+  name: production-litmuschaos
+  namespace: litmuschaos-website
+  annotations:
+    flux.weave.works/automated: 'true'
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: production-litmuschaos
+  template:
+    metadata:
+      labels:
+        app: production-litmuschaos
+    spec:
+      containers:
+      - name: production-litmuschaos
+        image: litmuschaos/www-litmuschaos-io:928076
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          protocol: TCP
+      restartPolicy: Always
+      imagePullSecrets:
+      - name: mayadatasecret2

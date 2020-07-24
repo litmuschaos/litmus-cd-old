@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: stage-litmuschaos-backend
+  name: stage-litmuschaos-backend-service
+  namespace: litmuschaos-website
+spec:
+  ports:
+  - name: stage-litmuschaos-backend
+    port: 3000
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app: stage-litmuschaos-backend

@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: stage-litmuschaos
+  name: stage-litmuschaos
+  namespace: litmuschaos-website
+  annotations:
+    flux.weave.works/automated: 'true'
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stage-litmuschaos
+  template:
+    metadata:
+      labels:
+        app: stage-litmuschaos
+    spec:
+      containers:
+      - name: stage-litmuschaos
+        image: litmuschaos/www-staging-litmuschaos-io:staging-63e62a
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          protocol: TCP
+      restartPolicy: Always
+      imagePullSecrets:
+      - name: mayadatasecret2
