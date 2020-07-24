@@ -10,7 +10,7 @@ metadata:
     nginx.ingress.kubernetes.io/server-snippets: "gzip on;"
     nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
   name: litmuschaos-ingress
-  namespace: litmuschaos-website
+  namespace: litmuschaos
 spec:
   rules:
   - host: litmuschaos.io

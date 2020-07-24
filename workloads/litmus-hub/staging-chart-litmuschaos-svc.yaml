@@ -4,7 +4,7 @@ metadata:
   labels:
     app: stage-chart-litmuschaos
   name: stage-chart-litmuschaos-service
-  namespace: litmuschaos-website
+  namespace: litmuschaos
 spec:
   ports:
   - name: stage-chart-litmuschaos

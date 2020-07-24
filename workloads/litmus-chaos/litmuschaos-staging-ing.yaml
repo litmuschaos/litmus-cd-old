@@ -12,7 +12,7 @@ metadata:
     nginx.ingress.kubernetes.io/configuration-snippet: |
         more_set_headers "X-Robots-Tag:noindex, nofollow, nosnippet, noarchive";    
   name: litmuschaos-ingress-staging
-  namespace: litmuschaos-website
+  namespace: litmuschaos
 spec:
   rules:
   - host: staging.litmuschaos.io

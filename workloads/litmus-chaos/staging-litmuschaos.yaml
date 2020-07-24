@@ -5,7 +5,7 @@ metadata:
   labels:
     app: stage-litmuschaos
   name: stage-litmuschaos
-  namespace: litmuschaos-website
+  namespace: litmuschaos
   annotations:
     fluxcd.io/automated: "true"
 spec:

@@ -10,7 +10,7 @@ metadata:
     nginx.ingress.kubernetes.io/server-snippets: "gzip on;"
     nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
   name: chart-litmuschaos-ingress-prod
-  namespace: litmuschaos-website
+  namespace: litmuschaos
 spec:
   rules:
   - host: hub.litmuschaos.io

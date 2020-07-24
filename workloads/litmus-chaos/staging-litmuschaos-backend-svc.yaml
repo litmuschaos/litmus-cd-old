@@ -4,7 +4,7 @@ metadata:
   labels:
     app: stage-litmuschaos-backend
   name: stage-litmuschaos-backend-service
-  namespace: litmuschaos-website
+  namespace: litmuschaos
 spec:
   ports:
   - name: stage-litmuschaos-backend

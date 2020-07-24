@@ -5,7 +5,7 @@ metadata:
   labels:
     app: stage-litmuschaos-backend
   name: stage-litmuschaos-backend
-  namespace: litmuschaos-website
+  namespace: litmuschaos
 spec:
   replicas: 1
   selector:
