@@ -37,6 +37,5 @@ spec:
   - name: v0-5-0litmusdoc
     port: 80
     protocol: TCP
-  type: LoadBalancer
   selector:
     app: v0-5-0litmusdoc

@@ -5,7 +5,7 @@ metadata:
   labels:
     app: prod-chart-litmuschaos-server
   name: prod-chart-litmuschaos-server
-  namespace: litmus-hub
+  namespace: litmuschaos-website
   annotations:
     fluxcd.io/automated: "true"
 spec:

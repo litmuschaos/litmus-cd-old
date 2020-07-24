@@ -1,8 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    flux.weave.works/automated: "true"
   name: stage-litmus-openebs-docs
   namespace: litmus-doc
 spec:
@@ -35,6 +33,5 @@ spec:
     port: 80
     protocol: TCP
     targetPort: 80
-  type: LoadBalancer    
   selector:
     app: stage-litmus-openebs-docs

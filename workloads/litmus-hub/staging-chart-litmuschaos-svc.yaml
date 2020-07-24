@@ -4,12 +4,13 @@ metadata:
   labels:
     app: stage-chart-litmuschaos
   name: stage-chart-litmuschaos-service
-  namespace: litmus-hub
+  namespace: litmuschaos-website
 spec:
   ports:
   - name: stage-chart-litmuschaos
     port: 80
     protocol: TCP
     targetPort: 80
+  type: LoadBalancer
   selector:
     app: stage-chart-litmuschaos

@@ -5,7 +5,7 @@ metadata:
   labels:
     app: stage-chart-litmuschaos
   name: stage-chart-litmuschaos
-  namespace: litmus-hub
+  namespace: litmuschaos-website
   annotations:
     fluxcd.io/automated: "true"
 spec:

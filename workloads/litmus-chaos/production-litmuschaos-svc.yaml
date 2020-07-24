@@ -2,15 +2,15 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: prod-chart-litmuschaos
-  name: prod-chart-litmuschaos-service
+    app: production-litmuschaos
+  name: production-litmuschaos-service
   namespace: litmuschaos-website
 spec:
   ports:
-  - name: prod-chart-litmuschaos
+  - name: production-litmuschaos
     port: 80
     protocol: TCP
     targetPort: 80
   type: LoadBalancer
   selector:
-    app: prod-chart-litmuschaos
+    app: production-litmuschaos
