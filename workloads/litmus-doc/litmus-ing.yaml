@@ -3,10 +3,10 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   annotations:
-    # cert-manager.io/cluster-issuer: letsencrypt-prod-maya-cluster
+    cert-manager.io/cluster-issuer: letsencrypt-litmus-website-cluster
     kubernetes.io/ingress.class: nginx
     ingress.kubernetes.io/rewrite-target: /
-    # kubernetes.io/tls-acme: "true"
+    kubernetes.io/tls-acme: "true"
     nginx.org/server-snippets: "gzip on;"
     nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
   name: dashboard-ingress
