@@ -5,12 +5,12 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-litmus-website-cluster
     kubernetes.io/ingress.class: nginx
-    ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
     kubernetes.io/tls-acme: "true"
     fluxcd.io/automated: "true"
     nginx.org/server-snippets: "gzip on;"
     nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
-    ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
     acme.cert-manager.io/http01-edit-in-place: "true"
   name: dashboard-ingress-prod
   namespace: litmus-doc
@@ -22,20 +22,20 @@ spec:
       - backend:
           serviceName: litmusdoc-service
           servicePort: 80
-        path: "/"
+        path: "/(.*)"
       - backend:
           serviceName: v0-5-0litmusdoc-service
           servicePort: 80
-        path: "/v050/"
+        path: "/v050/(.*)"
       - backend:
           serviceName: stage-litmus-openebs-docs-svc
           servicePort: 80
-        path: "/stage-litmus-openebs-docs/"
+        path: "/stage-litmus-openebs-docs/(.*)"
       - backend:
           serviceName: echoheaders
           servicePort: 80
-        path: "/echo/"
+        path: "/echo/(.*)"
   tls:
   - hosts:
     - docs.litmuschaos.io
-    secretName: litmus-docs
+    secretName: litmus-docs-prod
