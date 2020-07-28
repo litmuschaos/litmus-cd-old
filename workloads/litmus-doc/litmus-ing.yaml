@@ -1,5 +1,5 @@
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   annotations:
@@ -7,10 +7,10 @@ metadata:
     kubernetes.io/ingress.class: nginx
     ingress.kubernetes.io/rewrite-target: /
     kubernetes.io/tls-acme: "true"
+    fluxcd.io/automated: "true"
     nginx.org/server-snippets: "gzip on;"
     nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
     acme.cert-manager.io/http01-edit-in-place: "true"
-    fluxcd.io/automated: "true"
   name: dashboard-ingress
   namespace: litmus-doc
 spec:
