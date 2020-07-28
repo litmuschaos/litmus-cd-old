@@ -10,6 +10,7 @@ metadata:
     fluxcd.io/automated: "true"
     nginx.org/server-snippets: "gzip on;"
     nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+    ingress.kubernetes.io/ssl-redirect: "true"
     acme.cert-manager.io/http01-edit-in-place: "true"
   name: dashboard-ingress
   namespace: litmus-doc
