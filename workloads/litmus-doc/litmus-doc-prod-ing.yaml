@@ -38,4 +38,4 @@ spec:
   tls:
   - hosts:
     - docs.litmuschaos.io
-    secretName: litmus-docs-prod
+    secretName: litmus-docs-ssl
