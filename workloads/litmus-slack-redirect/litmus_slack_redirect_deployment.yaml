@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    app: litmus-slack-redirect
+  name: litmus-slack-redirect
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: litmus-slack-redirect
+  template:
+    metadata:
+      labels:
+        app: litmus-slack-redirect
+    spec:
+      containers:
+      - image: nginx
+        imagePullPolicy: Always
+        name: litmus-slack-redirect
+        resources:
+          requests:
+            cpu: 100m
+            memory: 512Mi
+        volumeMounts:
+        - mountPath: /etc/nginx/conf.d/ # mount nginx-custom.conf volumn to /etc/nginx
+          readOnly: true
+          name: litmus-nginx-custom-conf    
+      imagePullSecrets:
+      - name: mayadatasecret
+      volumes:
+        - name: litmus-nginx-custom-conf
+          configMap:
+             name: litmus-nginx-custom.conf # place ConfigMap `nginx-custom.conf` on /etc/nginx   
+             items:
+              - key: default.conf
+                path: default.conf  

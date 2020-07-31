@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: litmus-slack-redirect
+  name: litmus-slack-redirect
+  namespace: default
+spec:
+  ports:
+  - name: litmus-slack-redirect
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: litmus-slack-redirect
