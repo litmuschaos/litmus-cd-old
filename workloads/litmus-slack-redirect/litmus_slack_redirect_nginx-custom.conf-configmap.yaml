@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: litmus-nginx-custom.conf
+data:
+      default.conf: |
+       server {
+        listen 80;
+        #listen 443 ssl;
+        server_name www.old-name.com;
+        return 301 https://kubernetes.slack.com/archives/CNXNB0ZTN;
+       }
