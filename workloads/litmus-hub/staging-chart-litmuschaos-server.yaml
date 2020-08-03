@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: stage-chart-litmuschaos-server
-        image: mayadata/charthub-litmuschaos-io-stag-server:8ffea4
+        image: mayadata/charthub-litmuschaos-io-stag-server:e77599
         imagePullPolicy: Always
         env:
         - name: CHAOS_CHART_BRANCH
