@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: prod-chart-litmuschaos
-        image: mayadata/charthub-litmuschaos-io:bee6fc
+        image: mayadata/charthub-litmuschaos-io:374838
         imagePullPolicy: Always
         ports:
         - containerPort: 80
