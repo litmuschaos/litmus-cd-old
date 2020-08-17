@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: stage-litmuschaos
-        image: litmuschaos/www-staging-litmuschaos-io:staging-08d8cc
+        image: litmuschaos/www-staging-litmuschaos-io:staging-e18955
         imagePullPolicy: Always
         ports:
         - containerPort: 80
