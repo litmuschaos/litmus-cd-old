@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: stage-chart-litmuschaos
-        image: mayadata/charthub-litmuschaos-io-stag:35e380
+        image: mayadata/charthub-litmuschaos-io-stag:903af6
         imagePullPolicy: Always
         ports:
         - containerPort: 80
