@@ -28,4 +28,4 @@ spec:
   tls:
   - hosts:
     - staging.chaoscarnival.io
-    secretName: litmus-website-secrets-prod
+    secretName: chaoscarnival-ssl
