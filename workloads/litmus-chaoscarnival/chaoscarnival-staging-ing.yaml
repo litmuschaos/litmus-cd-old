@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-litmus-website-cluster
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    kubernetes.io/tls-acme: "true"
+    fluxcd.io/automated: "true"
+    nginx.org/server-snippets: "gzip on;"
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  name: chaoscarnival-ingress-staging
+  namespace: litmuschaos
+spec:
+  rules:
+  - host: staging.chaoscarnival.io
+    http:
+      paths:
+      - backend:
+          serviceName: staging-chaoscarnival-service
+          servicePort: 80
+        path: "/(.*)"
+      - backend:
+          serviceName: echoheaders
+          servicePort: 80
+        path: "/echo/(.*)"
+  tls:
+  - hosts:
+    - staging.chaoscarnival.io
+    secretName: litmus-website-secrets-prod

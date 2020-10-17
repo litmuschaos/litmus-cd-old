@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: staging-chaoscarnival
+  name: staging-chaoscarnival
+  namespace: litmuschaos
+  annotations:
+    fluxcd.io/automated: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: staging-chaoscarnival
+  template:
+    metadata:
+      labels:
+        app: staging-chaoscarnival
+    spec:
+      containers:
+      - name: staging-chaoscarnival
+        image: mayadata/www-staging-chaoscarnival-io:ci
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          protocol: TCP
+      restartPolicy: Always
+      imagePullSecrets:
+      - name: mayadatasecret2
