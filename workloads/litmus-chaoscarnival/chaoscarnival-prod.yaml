@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: prod-chaoscarnival
+  name: prod-chaoscarnival
+  namespace: litmuschaos
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prod-chaoscarnival
+  template:
+    metadata:
+      labels:
+        app: prod-chaoscarnival
+    spec:
+      containers:
+      - name: prod-chaoscarnival
+        image: mayadata/www-chaoscarnival-io:XXXXXX
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          protocol: TCP
+      restartPolicy: Always
+      imagePullSecrets:
+      - name: mayadatasecret2
