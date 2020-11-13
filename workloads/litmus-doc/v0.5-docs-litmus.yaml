@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: v0-5-0litmusdoc
-        image: mayadataio/litmus-docs:master-fd0dba
+        image: mayadataio/litmus-docs:master-9960f3
         imagePullPolicy: Always
         ports:
         - containerPort: 80
