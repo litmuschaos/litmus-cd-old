@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: prod-chart-litmuschaos-server
-        image: mayadata/charthub-litmuschaos-io-server:c54349
+        image: mayadata/charthub-litmuschaos-io-server:3c6bed
         imagePullPolicy: Always
         env:
         - name: CHAOS_CHART_BRANCH
