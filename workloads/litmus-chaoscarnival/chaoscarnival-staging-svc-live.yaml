@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: staging-live-chaoscarnival
+  name: staging-live-chaoscarnival-service
+  namespace: litmuschaos
+spec:
+  ports:
+  - name: staging-live-chaoscarnival
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: staging-live-chaoscarnival
