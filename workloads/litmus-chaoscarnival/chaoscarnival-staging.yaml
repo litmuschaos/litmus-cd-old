@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: staging-chaoscarnival
-        image: mayadata/www-staging-chaoscarnival-io:ci-329a58
+        image: mayadata/www-staging-chaoscarnival-io:ci-bb171b
         imagePullPolicy: Always
         ports:
         - containerPort: 80
