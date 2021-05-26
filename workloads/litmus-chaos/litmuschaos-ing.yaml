@@ -25,7 +25,19 @@ spec:
           serviceName: echoheaders
           servicePort: 80
         path: "/echo/(.*)"
+  - host: www.litmuschaos.io
+    http:
+      paths:
+      - backend:
+          serviceName: production-litmuschaos-service
+          servicePort: 80
+        path: "/(.*)"
+      - backend:
+          serviceName: echoheaders
+          servicePort: 80
+        path: "/echo/(.*)"
   tls:
   - hosts:
     - litmuschaos.io
+    - www.litmuschaos.io
     secretName: litmus-website-secrets-prod

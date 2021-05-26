@@ -29,7 +29,23 @@ spec:
           serviceName: echoheaders
           servicePort: 80
         path: "/echo/(.*)"
+  - host: www.hub.litmuschaos.io
+    http:
+      paths:
+      - backend:
+          serviceName: prod-chart-litmuschaos-service
+          servicePort: 80
+        path: "/(.*)"
+      - backend:
+          serviceName: prod-chart-litmuschaos-server-service
+          servicePort: 8080
+        path: "/api/(.*)"
+      - backend:
+          serviceName: echoheaders
+          servicePort: 80
+        path: "/echo/(.*)"
   tls:
   - hosts:
     - hub.litmuschaos.io
+    - www.hub.litmuschaos.io
     secretName: charthub-litmuschaos-secrets-prod
