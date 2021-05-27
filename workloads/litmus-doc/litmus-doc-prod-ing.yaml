@@ -34,7 +34,28 @@ spec:
           serviceName: echoheaders	
           servicePort: 80	
         path: "/echo/(.*)"	
+  - host: www.docs.litmuschaos.io	
+    http:	
+      paths:	
+      - backend:	
+          serviceName: litmusdoc-service	
+          servicePort: 80	
+        path: "/(.*)"	
+      - backend:	
+          serviceName: v0-5-0litmusdoc-service	
+          servicePort: 80	
+        path: "/v050/(.*)"	
+      - backend:	
+          serviceName: stage-litmus-openebs-docs-svc	
+          servicePort: 80	
+        path: "/stage-litmus-openebs-docs/(.*)"	
+      - backend:	
+          serviceName: echoheaders	
+          servicePort: 80	
+        path: "/echo/(.*)"	
+
   tls:	
   - hosts:	
-    - docs.litmuschaos.io	
+    - docs.litmuschaos.io
+    - www.docs.litmuschaos.io	
     secretName: litmus-doc-prod
