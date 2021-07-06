@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: production-litmuschaos
-        image: litmuschaos/www-litmuschaos-io:85bda0
+        image: litmuschaos/www-litmuschaos-io:1ebeb6
         imagePullPolicy: Always
         ports:
         - containerPort: 80
