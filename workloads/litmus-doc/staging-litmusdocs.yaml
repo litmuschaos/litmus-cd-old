@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: staging-litmusdoc
-        image: mayadataio/stage-litmus-docs:staging-df6a34
+        image: litmuschaos/litmus-docs-beta:master-8a40142
         imagePullPolicy: Always
         ports:
         - containerPort: 80
