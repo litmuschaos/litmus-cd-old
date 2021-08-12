@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: staging-litmusdoc
-        image: litmuschaos/litmus-docs-beta:master-8a40142
+        image: litmuschaos/litmus-docs-beta:master-585e3a4
         imagePullPolicy: Always
         ports:
         - containerPort: 80
