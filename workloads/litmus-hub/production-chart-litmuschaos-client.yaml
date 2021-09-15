@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: prod-chart-litmuschaos
-        image: litmuschaos/charthub-litmuschaos-io:159236
+        image: litmuschaos/charthub-litmuschaos-io:61fb54
         imagePullPolicy: Always
         ports:
         - containerPort: 80
