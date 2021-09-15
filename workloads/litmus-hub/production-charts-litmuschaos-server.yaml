@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: prod-chart-litmuschaos-server
-        image: litmuschaos/charthub-litmuschaos-io-server:159236
+        image: litmuschaos/charthub-litmuschaos-io-server:61fb54
         imagePullPolicy: Always
         env:
         - name: CHAOS_CHART_BRANCH
